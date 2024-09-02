@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="perfil.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins&family=VT323&display=swap" rel="stylesheet">
+    <title>V EDUCATION | Perfil</title>
+</head>
+<body>
+    <nav class="nav" id="nav">
+        <div class="botoes-1">
+            <div class="logo" id="logo">
+                <img src="assets/logo certa.png" height="45vh" alt="botao-inicial">
+            </div>
+            <div class="home" id="home">
+                <img src="assets/home.png" id="home_img" height="30vh" alt="botao-home">
+                <p class="texto" id="texto-home">
+                    Home
+                </p>
+            </div>
+            <div class="perfil" id="perfil">
+                <img src="assets/perfil selecionado.png" height="30vh" alt="botao-perfil">
+                <p class="texto" id="texto-perfil">
+                    Perfil
+                </p>
+            </div>
+        </div>
+        <div class="botoes-2">
+            <div class="logout" id="logout">
+                <img src="assets/logout.png" height="27vh" alt="logout">
+                <p class="texto" id="texto-logout">
+                    Logout
+                </p>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="sec-1" id="sec-1">
+            <div class="foto" id="foto"><b>FOTO</b></div>
+            <div class="info-1" id="info-1">
+                <div class="nome">
+                    <div class="nome-titulo">
+                        <p class="nome-texto" id="nome-texto"><b>Nome</b></p>
+                        <img src="assets/editar.png" id="edit-name" alt="editar">
+                    </div>
+                    <p class="nome-a" id="nome-a"></p>
+                </div>
+                <div class="nome">
+                    <div class="nome-titulo">
+                        <p class="nome-texto" id="nome-texto"><b>Email</b></p>
+                    </div>
+                    <p class="nome-a" id="email-a"></p>
+                </div>
+            </div>
+        </section>
+        <section class="sec-2" id="sec-2">
+            <hr>
+            <div class="info-2">
+                <div class="nome">
+                    <div class="nome-titulo">
+                        <p class="nome-texto" id="nome-texto"><b>CPF</b></p>
+                        <img src="assets/editar.png" id="edit-cpf" alt="editar">
+                    </div>
+                    <p class="nome-a" id="cpf-a"></p>
+                </div>
+                <div class="nome">
+                    <div class="nome-titulo">
+                        <p class="nome-texto" id="nome-texto"><b>Telefone</b></p>
+                        <img src="assets/editar.png" id="edit-telefone" alt="editar">
+                    </div>
+                    <p class="nome-a" id="telefone-a"></p>
+                </div>
+                <div class="nome">
+                    <div class="nome-titulo">
+                        <p class="nome-texto" id="nome-texto"><b>Data de Nascimento</b></p>
+                        <img src="assets/editar.png" id="edit-nascimento" alt="editar">
+                    </div>
+                    <p class="nome-a" id="nascimento-a"></p>
+                </div>
+            </div>
+        </section>
+
+        <div class="form-container-name" id="form-container">
+            <form id="createWorkspaceForm">
+                <h2 id="nome-forms">Criar novo Workspace</h2>
+                <input type="text" id="nome_user" name="nome_user" placeholder="" required>
+                <div class="form-buttons">
+                    <button type="button" id="closeForm">Fechar</button>
+                    <button type="button" id="criar_nov">Atualizar</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="blackscreen" id="blackscreen"></div>
+        
+    </main>
+
+    <script src="perfil.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

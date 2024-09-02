@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins&family=VT323&display=swap" rel="stylesheet">
+    <title>V EDUCATION | Home</title>
+</head>
+<body>
+    <nav class="nav" id="nav">
+        <div class="botoes-1">
+            <div class="logo" id="logo">
+                <img src="assets/logo certa.png" height="45vh" alt="botao-inicial">
+            </div>
+            <div class="home" id="home">
+                <img src="assets/home selecionada.png" height="30vh" alt="botao-home">
+                <p class="texto" id="texto-home">
+                    Home
+                </p>
+            </div>
+            <div class="perfil" id="perfil">
+                <img src="assets/user.png" height="30vh" alt="botao-perfil">
+                <p class="texto" id="texto-perfil">
+                    Perfil
+                </p>
+            </div>
+        </div>
+        <div class="botoes-2">
+            <div class="logout" id="logout">
+                <img src="assets/logout.png" height="27vh" alt="logout">
+                <p class="texto" id="texto-logout">
+                    Logout
+                </p>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="criar" id="criar">
+            <div class="novo" id="novo">
+                <img src="assets/create.png" height="120vh" alt="botao criar">
+            </div>
+        </section>
+
+        <section class="workspaces" id="workspaces">
+            <div class="title" id="title">
+                <div class="esquerda">
+                    Seus Workspaces
+                </div>
+                <div class="direita">
+                    Data de Criação
+                </div>
+            </div>
+            <hr id="line">
+            <div class="projetos" id="projetos">
+
+            </div>
+        </section>
+
+        <div class="form-container" id="form-container">
+            <form id="createWorkspaceForm">
+                <h2 id="title_modal"></h2>
+                <input type="text" id="workspaceName" name="workspaceName" placeholder="Nome do Workspace" required>
+                <div class="form-buttons">
+                    <button class="botoes" type="button" id="closeForm">Fechar</button>
+                    <button class="botoes" type="button" id="criar_nov">Criar</button>
+                    <button class="botoes" type="button" id="editar">Editar Nome</button>
+                    <button class="botoes" type="button" id="editar_nome">Editar</button>
+                    <button class="botoes" type="button" id="deletar">Excluir</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="blackscreen" id="blackscreen"></div>
+
+    </main>
+
+    <script src="home.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

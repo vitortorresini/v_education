@@ -1,0 +1,213 @@
+* {
+    margin: 0;
+    font-family: Montserrat;
+    padding: 0;
+}
+
+body {
+    display: flex;
+}
+
+.nav {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    width: 6vw;
+    align-items: center;
+    height: 100vh;
+    justify-content: space-between;
+    /* position: fixed; */
+}
+
+.nav > .botoes-1 {
+    margin-top: 3vh;
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+}
+
+.botoes-1 > div:hover {
+    cursor: pointer;
+}
+
+.logo {
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#criar, #novo, #nav {
+    transition: width 0.5s ease-in-out; /* add transition effect */
+}
+
+
+
+.logout {
+    margin-bottom: 2vh;
+    /* background-color: blue; */
+    display: flex;
+    justify-content: center;
+    gap: 2vw;
+}
+.logout:hover {
+    cursor: pointer;
+}
+.texto {
+    display: none;
+}
+
+.home {
+    /* background-color: aqua; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2vw;
+}
+.home > p {
+    font-weight: 700;
+}
+.perfil {
+    /* background-color: yellow; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    background-color: #D9D9D9;
+    height: 100vh;
+    width: 94vw;
+    align-items: center;
+}
+
+.titulo {
+    width: 93.5vw;
+    height: 6vh;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    /* border-radius: 0% 0% 8px 8px; */
+}
+.titulo > p {
+    font-size: 18px;
+    font-weight: 600;
+}
+.botao-save {
+    background-color: white;
+    border: none;
+    font-size: 15px;
+}
+.botao-save:hover{
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.configuracoes {
+    display: flex;
+    height: 7vh;
+    width: 93.5vw;
+    background-color: white;
+    margin-top: 0.2vw;
+    align-items: center;
+    justify-content: center;
+}
+
+.configuracoes > .perso {
+    display: flex;
+    height: 5vh;
+    width: 70vw;
+    /* background-color: red; */
+}
+
+.configuracoes > #toolbar-container {
+    border: none;
+    /* margin-left: 0.5vw; */
+    /* background-color: red; */
+}
+
+.pagina {
+    background-color: white;
+    height: 87vh;
+    width: 60vw;
+    margin-top: 1vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#editor {
+    width: 60vw;
+    /* background-color: red; */
+}
+
+.blackscreen {
+    z-index: 1000;
+    display: block;
+    /* opacity: 0; */
+    background-color: rgba(0, 0, 0, 0.559);
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.form-container-name {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 2000;
+    width: 20vw;
+    border-radius: 10px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.form-container-name h2 {
+    margin-bottom: 20px;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    text-align: center;
+}
+
+.form-container-name input {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 3vw;
+    
+}
+
+.form-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #6AAFE0;
+    color: white;
+    cursor: pointer;
+    width: 7vw;
+}
+
+.form-buttons button:hover {
+    background-color: #5a9fd9;
+}

@@ -1,0 +1,264 @@
+* {
+    margin: 0;
+    font-family: Montserrat;
+    padding: 0;
+}
+
+body {
+    display: flex;
+}
+
+.nav {
+    background-color: #D9D9D9;
+    display: flex;
+    flex-direction: column;
+    width: 6vw;
+    align-items: center;
+    height: 100vh;
+    justify-content: space-between;
+    /* position: fixed; */
+}
+
+.nav > .botoes-1 {
+    margin-top: 3vh;
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+}
+
+.botoes-1 > div:hover {
+    cursor: pointer;
+}
+
+.logo {
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#criar, #novo, #nav {
+    transition: width 0.5s ease-in-out; /* add transition effect */
+}
+
+
+
+.logout {
+    margin-bottom: 2vh;
+    /* background-color: blue; */
+    display: flex;
+    justify-content: center;
+    gap: 2vw;
+}
+.logout:hover {
+    cursor: pointer;
+}
+.texto {
+    display: none;
+}
+
+.home {
+    /* background-color: aqua; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2vw;
+}
+.home > p {
+    font-weight: 700;
+}
+.perfil {
+    /* background-color: yellow; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+}
+
+.criar {
+    /* background-color: blue; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45vh;
+    width: 94vw;
+}
+.novo {
+    border: 3px solid #6AAFE0;
+    border-radius: 13px;
+    width: 90vw;
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2vh;
+}
+.novo:hover {
+    cursor: pointer;
+}
+.workspaces {
+    /* background-color: red; */
+    width: 94vw;
+    height: 55vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.title {
+    /* background-color: blue; */
+    height: 4vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90vw;
+    gap: 8px;
+    transition: width 0.5s ease-in-out;
+}
+.direita {
+    margin-right: 3.4vw;
+}
+hr {
+    width: 90vw;
+    height: 0.07vh;
+    background-color: black;
+}
+
+.workspaces, hr {
+    transition: width 0.5s ease-in-out;
+}
+
+/* Existing styles... */
+
+.blackscreen {
+    z-index: 1000;
+    display: block;
+    /* opacity: 0; */
+    background-color: rgba(0, 0, 0, 0.559);
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.form-container {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 2000;
+    width: 20vw;
+    border-radius: 10px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    text-align: center;
+}
+
+.form-container input {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2vw;
+    
+}
+
+.form-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #6AAFE0;
+    color: white;
+    cursor: pointer;
+    width: 7vw;
+}
+
+.form-buttons button:hover {
+    background-color: #5a9fd9;
+}
+
+/* Existing styles... */
+
+.cards {
+    display: flex;
+}
+
+.card {
+    width: 85vw;
+    height: 7vh;
+    /* background-color: red; */
+    border-bottom: 1px solid #D9D9D9;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    margin-bottom: 10px;
+    font-family: Montserrat, sans-serif;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    transition: width 0.5s ease-in-out;
+    /* background-color: red; */
+}
+.card:hover {
+    cursor: pointer;
+}
+
+.card-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-right {
+    display: flex;
+    gap: 1vw;
+}
+
+.workspace-icon {
+    height: 5vh;
+}
+
+.options {
+    /* background-color: red; */
+    border-bottom: 1px solid #D9D9D9;
+    height: 7vh;
+    width: 4vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.options_wk {
+    height: 3.5vh;
+    /* width: 2vw; */
+}
+
+#deletar {
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.botoes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

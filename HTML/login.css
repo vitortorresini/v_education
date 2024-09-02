@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    font-family: Montserrat;
+    padding: 0;
+}
+main {
+    display: flex;
+}
+.coluna-1 {
+    width: 40vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.coluna-2 {
+    background-color: rgb(223, 223, 223);
+    width: 60vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.titulo-logo {
+    display: flex;
+    /* background-color: red; */
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
+    height: 35vh;
+    font-size: 35px;
+    text-decoration: none;
+}.caixas {
+    /* background-color: green; */
+    /* margin-bottom: 10vh; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 25vh;
+    width: 26vw;
+    font-size: 20px;
+    gap: 35px;
+}
+.caixa {
+    border: 1.2px solid black;
+    border-radius: 8px;
+    width: 26vw;
+    height: 6vh;
+    padding-left: 2%;
+}
+.criar {
+    display: flex;
+    /* background-color: yellow; */
+    height: 9vh;
+    width: 26vw;
+    align-items: center;
+    justify-content: space-between;
+    /* gap: 28.5%; */
+}
+.criar a {
+    color: #6AAFE0;
+}
+.botao {
+    /* background-color: red; */
+    width: 26vw;
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.botao button {
+    width: 26vw;
+    height: 9vh;
+    border-radius: 10px;
+    border: none;
+    font-size: 25px;
+    background-color: #6AAFE0;
+}
+.botao button:hover {
+    cursor: pointer;
+}
