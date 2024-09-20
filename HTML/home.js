@@ -100,29 +100,29 @@ function criarCardWorkspace(workspace) {
 
 // Função para mostrar formulário de edição
 
-// function mostrarFormularioEdicao(id) {
-//   esconderFormulario();
-//   setTimeout(() => {
-//     title_modal.textContent = 'Escolha um novo Nome'
-//     input.style.display = 'flex';
-//     input.placeholder = 'Novo Nome';
-//     editar_nome.style.display = 'flex';
-//     editar.style.display = 'none'
-//     deletar.style.display = 'none'
-//     criar.style.display = 'none'
+function mostrarFormularioEdicao(id) {
+  esconderFormulario();
+  setTimeout(() => {
+    title_modal.textContent = 'Escolha um novo Nome'
+    input.style.display = 'flex';
+    input.placeholder = 'Novo Nome';
+    editar_nome.style.display = 'flex';
+    editar.style.display = 'none'
+    deletar.style.display = 'none'
+    criar.style.display = 'none'
     
     
     
-//     formContainer.style.opacity = '1'
-//     formContainer.style.visibility = 'visible'
-//     formContainer.style.transition = 'all 0.7s ease'
+    formContainer.style.opacity = '1'
+    formContainer.style.visibility = 'visible'
+    formContainer.style.transition = 'all 0.7s ease'
     
-//     fundo_escuro.style.opacity = '1'
-//     fundo_escuro.style.visibility = 'visible'
-//     fundo_escuro.style.transition = 'all 0.7s ease'
+    fundo_escuro.style.opacity = '1'
+    fundo_escuro.style.visibility = 'visible'
+    fundo_escuro.style.transition = 'all 0.7s ease'
     
-//   }, 500);
-// }
+  }, 500);
+}
 
 
 
