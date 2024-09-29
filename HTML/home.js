@@ -71,9 +71,9 @@ function criarCardWorkspace(workspace) {
   
   // Função para gerenciar workspace (editar ou excluir)
   function gerenciarWorkspace(id) {
-    mostrarFormularioGerenciamento();
+    mostrarFormularioGerenciamento(id);
     configurarBotaoExcluir(id);
-    configurarBotaoEditar(id);
+    // configurarBotaoEditar(id);
   }
   
   // Função para configurar botão de excluir workspace
@@ -120,6 +120,34 @@ function mostrarFormularioEdicao(id) {
     fundo_escuro.style.opacity = '1'
     fundo_escuro.style.visibility = 'visible'
     fundo_escuro.style.transition = 'all 0.7s ease'
+
+    editar_nome.addEventListener("click", async function name_wk_edit(event) {
+      event.preventDefault()
+
+      newname = document.getElementById("workspaceName").value
+
+      let data = {
+        newname,
+        id
+      }
+
+      console.log(data)
+
+      let response = await fetch('http://localhost:3001/api/store/editName', {
+        method: 'PUT',
+        headers: { "Content-type": "application/json;charset=UTF-8" },
+        body: JSON.stringify(data)
+      })
+
+      let content = await response.json();
+
+      console.log(content)
+      if(content.success) {
+        console.log('nome alterado com sucesso')
+      } else {
+        console.log('falha ao alterar nome')
+      }
+    })
     
   }, 500);
 }
@@ -136,13 +164,13 @@ function abrirWorkspace(id, nome) {
 }
 
 // Função para mostrar o formulário de gerenciamento de workspace
-function mostrarFormularioGerenciamento() {
-  title_modal.textContent = 'Excluir Workspace';
+function mostrarFormularioGerenciamento(id) {
+  title_modal.textContent = 'Gerenciar Workspace';
   criar.style.display = 'none'
   editar_nome.style.display = 'none'
   input.style.display = 'none'
   deletar.style.display = 'flex'
-  editar.style.display = 'none'
+  editar.style.display = 'flex'
   
   formContainer.style.opacity = '1'
   formContainer.style.visibility = 'visible'
@@ -151,6 +179,8 @@ function mostrarFormularioGerenciamento() {
   fundo_escuro.style.opacity = '1'
   fundo_escuro.style.visibility = 'visible'
   fundo_escuro.style.transition = 'all 0.7s ease'
+
+  editar.addEventListener("click", () => mostrarFormularioEdicao(id))
 }
 
 function mostrarFormularioCriação() {

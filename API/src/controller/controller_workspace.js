@@ -168,7 +168,7 @@ async function editName(request, response) {
     console.log('ENTROU NA FUNÇÃO editName');
 
     const params = Array(
-        request.body.name,
+        request.body.newname,
         request.body.id
     );
 
