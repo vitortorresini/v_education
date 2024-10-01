@@ -165,13 +165,15 @@ async function deleteWorkspace(request, response) {
 
 // PÁGINA HOME
 async function editName(request, response) {
-    console.log('ENTROU NA FUNÇÃO editName');
+   
 
     const params = Array(
         request.body.newname,
         request.body.id
     );
 
+    console.log("eita")
+ 
     const query = 'UPDATE workspaces_table SET nome = ? WHERE id = ?';
 
     connection.query(query, params, (err, results) => {

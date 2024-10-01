@@ -134,7 +134,7 @@ function mostrarFormularioEdicao(id) {
       console.log(data)
 
       let response = await fetch('http://localhost:3001/api/store/editName', {
-        method: 'PUT',
+        method: 'PATCH',
         headers: { "Content-type": "application/json;charset=UTF-8" },
         body: JSON.stringify(data)
       })
