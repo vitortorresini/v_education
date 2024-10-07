@@ -21,6 +21,13 @@ main {
     justify-content: center;
     align-items: center;
 }
+
+.coluna-2 > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .titulo-logo {
     display: flex;
     /* background-color: red; */

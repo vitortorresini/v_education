@@ -144,6 +144,13 @@ function mostrarFormularioEdicao(id) {
       console.log(content)
       if(content.success) {
         console.log('nome alterado com sucesso')
+
+        esconderFormulario()
+
+        setTimeout(() => {
+          window.location.reload()
+        }, 500)
+
       } else {
         console.log('falha ao alterar nome')
       }
