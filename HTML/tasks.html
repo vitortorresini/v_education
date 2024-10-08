@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="tasks.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins&family=VT323&display=swap" rel="stylesheet">
-    <title>V EDUCATION | Home</title>
+    <title>V EDUCATION | Tarefas</title>
 </head>
 <body>
     <nav class="nav" id="nav">
@@ -39,47 +39,48 @@
     </nav>
 
     <main>
-        <section class="criar" id="criar">
-            <div class="novo" id="novo">
-                <img src="assets/create.png" height="120vh" alt="botao criar">
-                <p>Criar Workspace</p>
+        <header class="title">
+            <p>Suas Tarefas | Compromissos</p>
+            <button type="button" id="criar" class="criar">Criar</button>
+        </header>
+        <section class="tasks">
+            <div class="sec">
+                <p>Tarefas | Eventos Abertas</p>
+                <hr>
+                <div class="cards"></div>
+            </div>
+            <div class="sec">
+                <p>Tarefas | Eventos Concluidas</p>
+                <hr>
+                <div class="cards"></div>
             </div>
         </section>
 
-        <section class="workspaces" id="workspaces">
-            <div class="title" id="title">
-                <div class="esquerda">
-                    Seus Workspaces
-                </div>
-                <div class="direita">
-                    Data de Criação
-                </div>
-            </div>
-            <hr id="line">
-            <div class="projetos" id="projetos">
-
-            </div>
-        </section>
 
         <div class="form-container" id="form-container">
             <form id="createWorkspaceForm">
                 <h2 id="title_modal"></h2>
-                <input type="text" id="workspaceName" name="workspaceName" placeholder="Nome do Workspace" required>
+                <input class="name" type="text" id="workspaceName" name="workspaceName" placeholder="Nome do Workspace" required>
+                <input class="desc" type="text" name="Descrição" id="Descrição" placeholder="Descrição">
                 <div class="form-buttons">
                     <button class="botoes" type="button" id="closeForm">Fechar</button>
                     <button class="botoes" type="button" id="criar_nov">Criar</button>
-                    <button class="botoes" type="button" id="editar">Editar Nome</button>
-                    <button class="botoes" type="button" id="editar_nome">Editar</button>
+                    <button class="botoes" type="button" id="opc_tarefa">Tarefa</button>
+                    <button class="botoes" type="button" id="opc_evento">Evento</button>
                     <button class="botoes" type="button" id="deletar">Excluir</button>
                 </div>
             </form>
         </div>
-
+    
         <div class="blackscreen" id="blackscreen"></div>
-
     </main>
 
-    <script src="home.js"></script>
+
+
+
+
+
+    <script src="tasks.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

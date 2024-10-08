@@ -1,0 +1,10 @@
+CREATE TABLE tasks_table (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+	createdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
+	conteudo TEXT,
+    status VARCHAR(255),
+    end_date VARCHAR(255),
+    wk_id INT,
+	CONSTRAINT fk_wk_id FOREIGN KEY (wk_id) REFERENCES workspaces_table(id)
+);

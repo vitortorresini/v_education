@@ -40,8 +40,6 @@ body {
     transition: width 0.5s ease-in-out; /* add transition effect */
 }
 
-
-
 .logout {
     margin-bottom: 2vh;
     /* background-color: blue; */
@@ -56,84 +54,44 @@ body {
     display: none;
 }
 
-.home {
-    /* background-color: aqua; */
+main {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 2vw;
-}
-.home > p {
-    font-weight: 700;
-}
-.perfil {
-    /* background-color: yellow; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2vw;
+    width: 90vw;
+    gap: 5vh;
 }
 
-.criar {
-    /* background-color: blue; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 45vh;
-    width: 94vw;
-}
-.novo {
-    border: 3px solid #6AAFE0;
-    border-radius: 13px;
-    width: 90vw;
-    height: 40vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2vh;
-    flex-direction: column;
-    gap: 1vh;
-}
-.novo:hover {
-    cursor: pointer;
-}
-.novo > p {
-    font-weight: 500;
-    color: #5a9fd9;
-    font-size: 20px;
-}
-.workspaces {
-    /* background-color: red; */
-    width: 94vw;
-    height: 55vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 .title {
-    /* background-color: blue; */
-    height: 4vh;
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    width: 90vw;
-    gap: 8px;
-    transition: width 0.5s ease-in-out;
-}
-.direita {
-    margin-right: 3.4vw;
-}
-hr {
-    width: 90vw;
-    height: 0.07vh;
-    background-color: black;
+    align-items: center;
+    /* background-color: red; */
+    width: 87vw;
+    margin-top: 5vh;
 }
 
-.workspaces, hr {
-    transition: width 0.5s ease-in-out;
+.title > p {
+    font-size: 30pt;
 }
 
-/* Existing styles... */
+.title > button {
+    background-color: #6AAFE0;
+    border: none;
+    width: 7vw;
+    height: 5vh;
+    border-radius: 10px;
+    font-size: 15pt;
+    color: white;
+}
+.title > button:hover {
+    cursor: pointer;
+    background-color: #5a9fd9;
+    box-shadow: 3px 3px rgba(0, 0, 0, 0.193);
+    transition: 0.3s ease-in-out;
+}
+
+
 
 .blackscreen {
     z-index: 1000;
@@ -173,8 +131,17 @@ hr {
     text-align: center;
 }
 
-.form-container input {
+.name {
     width: 95%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.desc {
+    width: 95%;
+    height: 10vh;
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
@@ -196,6 +163,9 @@ hr {
     color: white;
     cursor: pointer;
     width: 7vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .form-buttons button:hover {
@@ -204,70 +174,32 @@ hr {
     transition: 0.3s ease-in-out;
 }
 
-/* Existing styles... */
+.tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 10vh;
+}
+
+.sec {
+    width: 87vw;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+.sec > hr {
+    width: 87vw;
+    height: 0.07vh;
+    background-color: black;
+}
+
+.sec > p {
+    font-size: 16pt
+}
 
 .cards {
-    display: flex;
+    background-color: #D9D9D9;
+    width: 15vw;
+    height: 15vh;
 }
 
-.card {
-    width: 85vw;
-    height: 7vh;
-    /* background-color: red; */
-    border-bottom: 1px solid #D9D9D9;
-    display: flex;
-    align-items: center;
-    padding: 0 10px;
-    margin-bottom: 10px;
-    font-family: Montserrat, sans-serif;
-    font-weight: 500;
-    display: flex;
-    justify-content: space-between;
-    transition: width 0.5s ease-in-out;
-    /* background-color: red; */
-}
-.card:hover {
-    cursor: pointer;
-}
-
-.card-left {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.card-right {
-    display: flex;
-    gap: 1vw;
-}
-
-.workspace-icon {
-    height: 5vh;
-}
-
-.options {
-    /* background-color: red; */
-    border-bottom: 1px solid #D9D9D9;
-    height: 7vh;
-    width: 4vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.options_wk {
-    height: 3.5vh;
-    /* width: 2vw; */
-}
-
-#deletar {
-    display: none;
-    justify-content: center;
-    align-items: center;
-}
-
-.botoes {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
