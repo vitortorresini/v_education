@@ -1,6 +1,6 @@
 const connection = require('../config/db');
 
-async function Create(request, response) {
+async function taskCreate(request, response) {
     const params = Array (
         request.body.nome,
         request.body.conteudo,
@@ -27,5 +27,5 @@ async function Create(request, response) {
 }
 
 module.exports = {
-    Create
+    taskCreate
 }

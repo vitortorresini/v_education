@@ -64,30 +64,57 @@ logout.addEventListener('click', function () {
   setTimeout(() => window.location.href = 'login.html', 1200);
 });
 
-  opc_tarefa.addEventListener('click', function(){
-    abrirFormulárioTask()
-  })
-  function abrirFormulárioTask() {
-    esconderFormulario()
-    setTimeout(() => {
-  
-      title_modal.textContent = 'Criar Tarefa';
-      opc_tarefa.style.display = 'none'
-      deletar.style.display = 'none'
-      opc_evento.style.display = 'none'
-      input.style.display = 'flex'
-      criar_modal.style.display = 'flex'
-      descrição.style.display = 'flex'
+opc_tarefa.addEventListener('click', function(){
+  abrirFormulárioTask()
+})
+function abrirFormulárioTask() {
+  esconderFormulario()
+  setTimeout(() => {
 
-      
-      
-      formContainer.style.opacity = '1'
-      formContainer.style.visibility = 'visible'
-      formContainer.style.transition = 'all 0.7s ease'
-      
-      fundo_escuro.style.opacity = '1'
-      fundo_escuro.style.visibility = 'visible'
-      fundo_escuro.style.transition = 'all 0.7s ease'
-    }, 500);
+    title_modal.textContent = 'Criar Tarefa';
+    opc_tarefa.style.display = 'none'
+    deletar.style.display = 'none'
+    opc_evento.style.display = 'none'
+    input.style.display = 'flex'
+    criar_modal.style.display = 'flex'
+    descrição.style.display = 'flex'
+
+    
+    
+    formContainer.style.opacity = '1'
+    formContainer.style.visibility = 'visible'
+    formContainer.style.transition = 'all 0.7s ease'
+    
+    fundo_escuro.style.opacity = '1'
+    fundo_escuro.style.visibility = 'visible'
+    fundo_escuro.style.transition = 'all 0.7s ease'
+  }, 500);
+}
+
+criar_modal.addEventListener("click", async function createObject(event)  {
+  event.preventDefault(event)
+
+  let nome = document.getElementById("workspaceName").value
+  let conteudo = document.getElementById("Descrição").value
+  let end_date = "01/01/0001"
+
+  let data = {
+    nome,conteudo,end_date
   }
-  
+
+  let response = await fetch("http://localhost:3001/api/store/taskCreate", {
+    method: 'POST',
+    headers: { "Content-type": "application/json;charset=UTF-8" },
+    body: JSON.stringify(data)
+  })
+
+  let content = await response.json()
+  console.log(content)
+  console.log(data)
+
+  if (content.success) {
+    console.log("Tarefa criada com sucesso!")
+  } else {
+    console.log("Erro")
+  }
+})
