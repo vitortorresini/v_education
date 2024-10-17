@@ -26,6 +26,14 @@ async function taskCreate(request, response) {
     })
 }
 
+async function getTask(request, params) {
+    const params = Array (
+        request.body.user_id
+    )
+
+    const query = "SELECT * FROM tasks_table WHERE "
+}
+
 module.exports = {
     taskCreate
 }

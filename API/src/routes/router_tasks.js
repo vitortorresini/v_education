@@ -1,7 +1,7 @@
 const { Router } = require('express')
 const router = Router();
 
-const {taskCreate} = require('../controller/controller_tasks');
+const {taskCreate,getTask} = require('../controller/controller_tasks');
 
 /**
  * @swagger
@@ -19,5 +19,23 @@ const {taskCreate} = require('../controller/controller_tasks');
  *                 type: object
  */
 router.post('/store/taskCreate', taskCreate);
+
+/**
+ * @swagger
+ * /getTask:
+ *   get:
+ *     summary: Busca as tarefas
+ *     responses:
+ *       200:
+ *         description: Busca as tarefas que estão relacionadas ao usuário
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ */
+
+router.get('/getTask', getTask)
 
 module.exports = router;
