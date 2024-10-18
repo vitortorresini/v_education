@@ -44,7 +44,7 @@ async function showWorkspace(request, response) {
 
     console.log(params);
     const query = "SELECT * FROM workspaces_table WHERE user_id = ?"
-    console.log("é aqui q to")
+    
     connection.query(query, params, (err, results) => {
         console.log(err, results)
         if (results) {

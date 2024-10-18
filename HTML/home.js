@@ -12,6 +12,7 @@ const editar_nome = document.getElementById('editar_nome') // Botão para editar
 const input = document.getElementById('workspaceName') // Input
 const editar = document.getElementById('editar') // Botão para escolher Edição
 const deletar = document.getElementById('deletar') // Botão para deletconst
+const tasks = document.getElementById('tarefas')
 
 // Função para mostrar os workspaces ao carregar a página
 document.addEventListener('DOMContentLoaded', async function showWorkspace(event) {
@@ -221,6 +222,7 @@ function esconderFormulario() {
 
 // Event listener para o perfil
 perfil.addEventListener('click', () => window.location.href = 'perfil.html');
+tasks.addEventListener('click', () => window.location.href = 'tasks.html')
 
 // Event listener para o botão de logout
 logout.addEventListener('click', function () {
