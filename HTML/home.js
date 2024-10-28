@@ -14,7 +14,6 @@ const editar = document.getElementById('editar') // Botão para escolher Ediçã
 const deletar = document.getElementById('deletar') // Botão para deletconst
 const task = document.getElementById('TAREFAS')
 
-
 // Função para mostrar os workspaces ao carregar a página
 document.addEventListener('DOMContentLoaded', async function showWorkspace(event) {
   event.preventDefault();
@@ -221,6 +220,7 @@ function esconderFormulario() {
 // Event listener para o perfil
 perfil.addEventListener('click', () => window.location.href = 'perfil.html');
 task.addEventListener("click", () => window.location.href = 'tasks.html')
+
 
 // Event listener para o botão de logout
 logout.addEventListener('click', function () {

@@ -160,8 +160,6 @@ function abrirFormulárioTask() {
     data.style.display = 'flex'
     data.placeholder = 'Data Limite'
 
-
-
     formContainer.style.opacity = '1'
     formContainer.style.visibility = 'visible'
     formContainer.style.transition = 'all 0.7s ease'
