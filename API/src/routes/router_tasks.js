@@ -36,6 +36,6 @@ router.post('/store/taskCreate', taskCreate);
  *                 type: object
  */
 
-router.get('/getTask', getTask)
+router.post('/getTask', getTask)
 
 module.exports = router;

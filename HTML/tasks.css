@@ -181,11 +181,24 @@ main {
     gap: 10vh;
 }
 
-.sec {
+.sec-open {
     width: 87vw;
     display: flex;
     flex-direction: column;
     gap: 2vh;
+    font-size: 17pt;
+}
+
+.sec-closed {
+    width: 87vw;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    /* Garantir que o conteúdo da sec-closed fique abaixo da div de cards */
+    position: relative;
+    top: 0;
+    z-index: 1; /* Certificar que está acima dos outros elementos */
+    font-size: 17pt;
 }
 
 .sec > hr {
@@ -199,8 +212,98 @@ main {
 }
 
 .cards {
+    /* border: 1px solid black; */
+    width: 87vw;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 2vh;
+    column-gap: 1vw;
+    min-height: 10vh; /* Definir uma altura mínima */
+    height: auto; /* Ajustar altura automática com base no conteúdo */
+}
+.card {
     background-color: #D9D9D9;
-    width: 15vw;
-    height: 15vh;
+    height: 17vh;
+    width: 18vw;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    padding: 15px;
+    gap: 3vh;
+}
+.nome {
+    font-size: 17pt;
+    font-weight: 650;
+    text-decoration: underline;
+}
+.data {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+}
+.data_title {
+    font-size: 16pt;
+    font-weight: 600;
+}
+.data_real {
+    font-size: 14pt;
+    margin-top: 2px;
+}
+.tipo {
+    font-size: 16pt;
+    display: flex;
+    align-items: center;
+    gap: 1.2vw;
 }
 
+.object {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 2000;
+    width: 30vw;
+    height: 60vh;
+    border-radius: 10px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.title_task {
+    width: 30vw;
+    /* background-color: black; */
+    display: flex;
+    justify-content: center;
+    font-size: 25pt;
+    font-weight: 600;
+}
+
+.content_task {
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: top;
+    justify-content: center;
+    gap: 4vh;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+#description {
+    background-color: #D9D9D9;
+    width: 30vw;
+    height: 33vh;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-left: 7px;
+}

@@ -44,15 +44,16 @@
             <button type="button" id="criar" class="criar">Criar</button>
         </header>
         <section class="tasks">
-            <div class="sec">
-                <p>Tarefas | Eventos Abertas</p>
+            <div class="sec-open" id="sec-open">
+                <p>Tarefas | Eventos Abertos</p>
                 <hr>
-                <div class="cards"></div>
+                <div id="cards" class="cards">
+
+                </div>
             </div>
-            <div class="sec">
-                <p>Tarefas | Eventos Concluidas</p>
+            <div class="sec-closed">
+                <p>Tarefas | Eventos Concluídos</p>
                 <hr>
-                <div class="cards"></div>
             </div>
         </section>
 
@@ -61,6 +62,7 @@
             <form id="createWorkspaceForm">
                 <h2 id="title_modal"></h2>
                 <input class="name" type="text" id="workspaceName" name="workspaceName" placeholder="Nome do Workspace" required>
+                <input class="name" type="text" id="date" name="date" placeholder="" required>
                 <textarea cols="30" rows="5" class="desc" type="text" name="Descrição" id="Descrição" wrap="hard" placeholder="Descrição"></textarea>
                 <div class="form-buttons">
                     <button class="botoes" type="button" id="closeForm">Fechar</button>
@@ -70,6 +72,22 @@
                     <button class="botoes" type="button" id="deletar">Excluir</button>
                 </div>
             </form>
+        </div>
+
+        <div class="object" id="object">
+            <div class="title_task" id="title_task">
+                
+            </div>
+            <div class="content_task">
+                <div class="data">
+                    <p><b>Data:</b></p>
+                    <p id="data"></p>
+                </div>
+                <div class="description">
+                    <p><b>Descrição:</b></p>
+                    <p id="description"></p>
+                </div>
+            </div>  
         </div>
     
         <div class="blackscreen" id="blackscreen"></div>

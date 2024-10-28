@@ -12,6 +12,8 @@ const editar_nome = document.getElementById('editar_nome') // Botão para editar
 const input = document.getElementById('workspaceName') // Input
 const editar = document.getElementById('editar') // Botão para escolher Edição
 const deletar = document.getElementById('deletar') // Botão para deletconst
+const task = document.getElementById('TAREFAS')
+
 
 // Função para mostrar os workspaces ao carregar a página
 document.addEventListener('DOMContentLoaded', async function showWorkspace(event) {
@@ -98,6 +100,13 @@ function criarCardWorkspace(workspace) {
   });
 }
 
+// Função para abrir workspace
+function abrirWorkspace(id, nome) {
+  localStorage.setItem('teste', nome);
+  localStorage.setItem('id_workspace', id);
+  window.location.href = 'workspace.html';
+}
+
 // Função para mostrar formulário de edição
 
 function mostrarFormularioEdicao(id) {
@@ -160,16 +169,6 @@ function mostrarFormularioEdicao(id) {
 }
 
 
-
-// Função para abrir workspace
-
-
-function abrirWorkspace(id, nome) {
-  localStorage.setItem('teste', nome);
-  localStorage.setItem('id_workspace', id);
-  window.location.href = 'workspace.html';
-}
-
 // Função para mostrar o formulário de gerenciamento de workspace
 function mostrarFormularioGerenciamento(id) {
   title_modal.textContent = 'Gerenciar Workspace';
@@ -221,6 +220,7 @@ function esconderFormulario() {
 
 // Event listener para o perfil
 perfil.addEventListener('click', () => window.location.href = 'perfil.html');
+task.addEventListener("click", () => window.location.href = 'tasks.html')
 
 // Event listener para o botão de logout
 logout.addEventListener('click', function () {

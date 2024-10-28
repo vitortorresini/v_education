@@ -1,13 +1,15 @@
 const connection = require('../config/db');
 
 async function taskCreate(request, response) {
-    const params = Array (
+    let params = Array (
         request.body.nome,
         request.body.conteudo,
-        request.body.end_date
+        request.body.end_date,
+        request.body.user_id,
+        request.body.tipo
     )
 
-    const query = "INSERT INTO tasks_table(nome,conteudo,end_date,status) VALUES(?,?,?,'open')"
+    let query = "INSERT INTO tasks_table(nome,conteudo,end_date,user_id,tipo,status) VALUES(?,?,?,?,?,'open')"
 
     connection.query(query, params, (err, results) => {
         if (results) {
@@ -26,14 +28,37 @@ async function taskCreate(request, response) {
     })
 }
 
-async function getTask(request, params) {
-    const params = Array (
+async function getTask(request, response) {
+    let params = Array (
         request.body.user_id
     )
 
-    const query = "SELECT * FROM tasks_table WHERE "
+    let query = "SELECT * FROM tasks_table WHERE user_id = ? AND status = 'open'"
+
+
+    connection.query(query, params, (err, results) => {
+        console.log(err, results)
+        if (results) {
+            response
+                .status(201)
+                .json({
+                    success: true,
+                    message: "Sucesso",
+                    data: results
+                })
+        } else {
+            response
+                .status(400)
+                .json({
+                    success: false,
+                    message: "Erro",
+                    data: err
+                })
+        }
+    })
 }
 
 module.exports = {
-    taskCreate
+    taskCreate,
+    getTask
 }
