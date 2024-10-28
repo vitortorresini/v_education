@@ -9,16 +9,20 @@ const criar_modal = document.getElementById('criar_nov') // Botão de Criar WK
 const opc_evento = document.getElementById('opc_evento') // Botão para editar
 const input = document.getElementById('workspaceName') // Input
 const opc_tarefa = document.getElementById('opc_tarefa') // Botão para escolher Edição
-const deletar = document.getElementById('deletar') // Botão para deletconst
 const criar = document.getElementById('criar')
 const descrição = document.getElementById('Descrição')
 const data = document.getElementById('date')
 const tasks_open = document.getElementById('cards')
+const tasks_closed = document.getElementById('cards_open')
 const home = document.getElementById('home')
 const task = document.getElementById('object')
 const task_title = document.getElementById('title_task')
 const data_task = document.getElementById("data")
 const descrição_task = document.getElementById("description")
+const closetask = document.getElementById('closeTask')
+const concluir = document.getElementById('concluir')
+const editar = document.getElementById('editTask')
+const deletar = document.getElementById('deleteTask')
 
 home.addEventListener("click", () => window.location.href = "home.html")
 
@@ -36,11 +40,10 @@ addEventListener('DOMContentLoaded', async function getOpenTasks(event) {
   let content = await response.json()
 
   if (content.success) {
-
     console.log(content)
 
     content.data.forEach(function (task_open) {
-      criarTaskOpen(task_open)
+      criarTask(task_open)
     })
   } else {
     console.log('deu errado')
@@ -48,33 +51,55 @@ addEventListener('DOMContentLoaded', async function getOpenTasks(event) {
 
 })
 
-function criarTaskOpen(task_open) {
-  let { nome, conteudo, end_date, tipo } = task_open;
+function criarTask(task_open) {
+  let { nome, conteudo, end_date, tipo, status } = task_open;
 
-  let nova_task = document.createElement('div');
-  nova_task.classList.add('card');
-
-  nova_task.innerHTML = `
-    <div class='nome'>
-      ${nome}
-    </div>
-    <div class='data'>
-      <p class='data_title'>Data:</p>
-      <p class='data_real'>${end_date}</p>
-    </div>
-    <div class='tipo'>
-      <p class='data_title'>Tipo:</p>
-      <p class='data_real'>${tipo}</p>
-    </div>
-  `;
-
-  nova_task.addEventListener("click", () => abrirTask(task_open.id, task_open.nome, task_open.conteudo, task_open.end_date));
-
-  tasks_open.appendChild(nova_task);
+  if (status === 'open') {
+    let nova_task = document.createElement('div');
+    nova_task.classList.add('card');
+  
+    nova_task.innerHTML = `
+      <div class='nome'>
+        ${nome}
+      </div>
+      <div class='data'>
+        <p class='data_title'>Data:</p>
+        <p class='data_real'>${end_date}</p>
+      </div>
+      <div class='tipo'>
+        <p class='data_title'>Tipo:</p>
+        <p class='data_real'>${tipo}</p>
+      </div>
+    `;
+  
+    
+    tasks_open.appendChild(nova_task);
+    nova_task.addEventListener("click", () => abrirTask(task_open.id, task_open.nome, task_open.conteudo, task_open.end_date, task_open.status));
+  } else {
+    let nova_task = document.createElement('div');
+    nova_task.classList.add('card');
+  
+    nova_task.innerHTML = `
+      <div class='nome'>
+        ${nome}
+      </div>
+      <div class='data'>
+        <p class='data_title'>Data:</p>
+        <p class='data_real'>${end_date}</p>
+      </div>
+      <div class='tipo'>
+        <p class='data_title'>Tipo:</p>
+        <p class='data_real'>${tipo}</p>
+      </div>
+    `;
+  
+    
+    tasks_closed.appendChild(nova_task);
+    nova_task.addEventListener("click", () => abrirTask(task_open.id, task_open.nome, task_open.conteudo, task_open.end_date, task_open.status));
+  }
 }
 
-
-function abrirTask(id, nome, conteudo, end_date) {
+function abrirTask(id, nome, conteudo, end_date, status) {
   console.log(id, nome, conteudo, end_date)
 
   task_title.textContent = nome
@@ -89,12 +114,64 @@ function abrirTask(id, nome, conteudo, end_date) {
   fundo_escuro.style.visibility = 'visible'
   fundo_escuro.style.transition = 'all 0.7s ease'
 
+  if (status === 'Concluido') {
+    concluir.style.display = 'none'
+    editar.style.display = 'none'
+  } else {
+    concluir.style.display = 'flex'
+    editar.style.display = 'flex'
+  }
+
+  concluir.addEventListener('click', () => concluirTask(id))
+  deletar.addEventListener('click', () => deletarTask(id))
+
+}
+
+async function concluirTask(id) {
+
+  let status = 'Concluido'
+
+  let data = {status,id}
+
+  console.log(data)
+
+  let response = await fetch("http://localhost:3001/api/closeTask", {
+    method: 'PATCH',
+    headers: { "Content-type": "application/json;charset=UTF-8" },
+    body: JSON.stringify(data)
+  })
+
+  let content = await response.json()
+
+  console.log(content)
+
+  if (content.success) {
+    console.log('deu bom')
+  } else {
+    console.log('deu merda')
+  }
+}
+
+async function deletarTask(id) {
+
+  let response = await fetch(`http://localhost:3001/api/deleteTask/${id}`, {
+    method: 'DELETE',
+    headers: { "Content-type": "application/json;charset=UTF-8" },
+  })
+
+  let content = await response.json()
+
+  if (content.success) {
+    console.log('deu bom')
+    console.log(content)
+  } else {
+    console.log('deu merda')
+  }
 }
 
 criar.addEventListener('click', function () {
   title_modal.textContent = 'Criar Tarefa | Evento';
   opc_tarefa.style.display = 'flex'
-  deletar.style.display = 'none'
   opc_evento.style.display = 'flex'
   input.style.display = 'none'
   criar_modal.style.display = 'none'
@@ -152,7 +229,6 @@ function abrirFormulárioTask() {
 
     title_modal.textContent = 'Criar Tarefa';
     opc_tarefa.style.display = 'none'
-    deletar.style.display = 'none'
     opc_evento.style.display = 'none'
     input.style.display = 'flex'
     criar_modal.style.display = 'flex'
@@ -202,4 +278,15 @@ criar_modal.addEventListener("click", async function createObject(event) {
   } else {
     console.log("Erro")
   }
+})
+
+closetask.addEventListener('click', function(){
+
+  task.style.opacity = '0'
+  task.style.visibility = 'hidden'
+  task.style.transition = 'all 0.7s ease'
+  
+  fundo_escuro.style.opacity = '0'
+  fundo_escuro.style.visibility = 'hidden'
+  fundo_escuro.style.transition = 'all 0.7s ease'
 })

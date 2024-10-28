@@ -54,6 +54,7 @@
             <div class="sec-closed">
                 <p>Tarefas | Eventos Concluídos</p>
                 <hr>
+                <div id="cards_open" class="cards">
             </div>
         </section>
 
@@ -69,7 +70,6 @@
                     <button class="botoes" type="button" id="criar_nov">Criar</button>
                     <button class="botoes" type="button" id="opc_tarefa">Tarefa</button>
                     <button class="botoes" type="button" id="opc_evento">Evento</button>
-                    <button class="botoes" type="button" id="deletar">Excluir</button>
                 </div>
             </form>
         </div>
@@ -85,8 +85,16 @@
                 </div>
                 <div class="description">
                     <p><b>Descrição:</b></p>
-                    <p id="description"></p>
+                    <div class="description-1">
+                        <p id="description"></p>
+                    </div>
                 </div>
+            </div>
+            <div class="task-botoes">
+                <button class="botoes" id="closeTask" type="button">Fechar</button>
+                <button class="botoes" id="deleteTask" type="button">Deletar</button>
+                <button class="botoes" id="editTask" type="button">Editar</button>
+                <button class="botoes" id="concluir" type="button">Concluir</button>
             </div>  
         </div>
     
