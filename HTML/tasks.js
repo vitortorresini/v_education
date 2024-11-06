@@ -4,11 +4,11 @@ const perfil = document.getElementById('perfil');
 const logo_nav = document.getElementById('logo');
 const logout = document.getElementById('logout');
 const closeForm = document.getElementById('closeForm');
-const title_modal = document.getElementById('title_modal'); // Titulo do Modal
-const criar_modal = document.getElementById('criar_nov') // Botão de Criar WK
-const opc_evento = document.getElementById('opc_evento') // Botão para editar
-const input = document.getElementById('workspaceName') // Input
-const opc_tarefa = document.getElementById('opc_tarefa') // Botão para escolher Edição
+const title_modal = document.getElementById('title_modal');
+const criar_modal = document.getElementById('criar_nov')
+const opc_evento = document.getElementById('opc_evento')
+const input = document.getElementById('workspaceName')
+const opc_tarefa = document.getElementById('opc_tarefa')
 const criar = document.getElementById('criar')
 const descrição = document.getElementById('Descrição')
 const data = document.getElementById('date')
@@ -23,6 +23,9 @@ const closetask = document.getElementById('closeTask')
 const concluir = document.getElementById('concluir')
 const editar = document.getElementById('editTask')
 const deletar = document.getElementById('deleteTask')
+const tipo_object = document.getElementById("tipo_object") 
+let tipo = ''
+
 
 home.addEventListener("click", () => window.location.href = "home.html")
 
@@ -74,7 +77,7 @@ function criarTask(task_open) {
   
     
     tasks_open.appendChild(nova_task);
-    nova_task.addEventListener("click", () => abrirTask(task_open.id, task_open.nome, task_open.conteudo, task_open.end_date, task_open.status));
+    nova_task.addEventListener("click", () => abrirTask(task_open.id, task_open.nome, task_open.conteudo, task_open.end_date, task_open.status, task_open.tipo));
   } else {
     let nova_task = document.createElement('div');
     nova_task.classList.add('card');
@@ -95,15 +98,16 @@ function criarTask(task_open) {
   
     
     tasks_closed.appendChild(nova_task);
-    nova_task.addEventListener("click", () => abrirTask(task_open.id, task_open.nome, task_open.conteudo, task_open.end_date, task_open.status));
+    nova_task.addEventListener("click", () => abrirTask(task_open.id, task_open.nome, task_open.conteudo, task_open.end_date, task_open.status, task_open.tipo));
   }
 }
 
-function abrirTask(id, nome, conteudo, end_date, status) {
+function abrirTask(id, nome, conteudo, end_date, status, tipo) {
   console.log(id, nome, conteudo, end_date)
 
   task_title.textContent = nome
   data_task.textContent = end_date
+  tipo_object.textContent = tipo
   descrição_task.textContent = conteudo
 
   task.style.opacity = '1'
@@ -124,7 +128,11 @@ function abrirTask(id, nome, conteudo, end_date, status) {
 
   concluir.addEventListener('click', () => concluirTask(id))
   deletar.addEventListener('click', () => deletarTask(id))
+  editar.addEventListener('click', () => editarTask(id, nome, conteudo, end_date, status, tipo))
+}
 
+function editarTask(id, nome, conteudo, end_date, status, tipo) {
+  
 }
 
 async function concluirTask(id) {
@@ -147,6 +155,8 @@ async function concluirTask(id) {
 
   if (content.success) {
     console.log('deu bom')
+    esconderFormulario()
+    setTimeout(() => location.reload(), 500)
   } else {
     console.log('deu merda')
   }
@@ -164,6 +174,9 @@ async function deletarTask(id) {
   if (content.success) {
     console.log('deu bom')
     console.log(content)
+    esconderFormulario()
+    setTimeout(() => location.reload(), 500)
+
   } else {
     console.log('deu merda')
   }
@@ -221,7 +234,13 @@ logout.addEventListener('click', function () {
 });
 
 opc_tarefa.addEventListener('click', function () {
+  tipo = "Task"
   abrirFormulárioTask()
+})
+
+opc_evento.addEventListener('click', function () {
+  tipo = "Evento"
+  abrirFormulárioEvento()
 })
 function abrirFormulárioTask() {
   esconderFormulario()
@@ -234,7 +253,32 @@ function abrirFormulárioTask() {
     criar_modal.style.display = 'flex'
     descrição.style.display = 'flex'
     data.style.display = 'flex'
+    input.placeholder = 'Nome de Tarefa'
     data.placeholder = 'Data Limite'
+
+    formContainer.style.opacity = '1'
+    formContainer.style.visibility = 'visible'
+    formContainer.style.transition = 'all 0.7s ease'
+
+    fundo_escuro.style.opacity = '1'
+    fundo_escuro.style.visibility = 'visible'
+    fundo_escuro.style.transition = 'all 0.7s ease'
+  }, 500);
+}
+
+function abrirFormulárioEvento() {
+  esconderFormulario()
+  setTimeout(() => {
+
+    title_modal.textContent = 'Criar Evento';
+    opc_tarefa.style.display = 'none'
+    opc_evento.style.display = 'none'
+    input.style.display = 'flex'
+    criar_modal.style.display = 'flex'
+    descrição.style.display = 'flex'
+    data.style.display = 'flex'
+    input.placeholder = 'Nome do Evento'
+    data.placeholder = 'Data do Evento'
 
     formContainer.style.opacity = '1'
     formContainer.style.visibility = 'visible'
@@ -253,8 +297,6 @@ criar_modal.addEventListener("click", async function createObject(event) {
   let conteudo = document.getElementById("Descrição").value
   let end_date = document.getElementById('date').value
   let user_id = localStorage.getItem('id_user');
-  let tipo = 'Task'
-
 
   let data = {
     nome, conteudo, end_date, user_id, tipo
@@ -272,7 +314,7 @@ criar_modal.addEventListener("click", async function createObject(event) {
 
   if (content.success) {
     console.log("Tarefa criada com sucesso!")
-
+    esconderFormulario()
     setTimeout(() => location.reload(), 500)
 
   } else {

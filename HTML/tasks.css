@@ -242,10 +242,15 @@ main {
     font-weight: 650;
     text-decoration: underline;
 }
+.infos {
+    display: flex;
+    align-items: center;
+    gap: 3vw;
+}
 .data {
     display: flex;
     align-items: center;
-    gap: 1vw;
+    gap: 0.5vw;
 }
 .data_title {
     font-size: 16pt;
@@ -259,7 +264,7 @@ main {
     font-size: 16pt;
     display: flex;
     align-items: center;
-    gap: 1.2vw;
+    gap: 0.8vw;
 }
 
 .object {
@@ -274,7 +279,7 @@ main {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     z-index: 2000;
     width: 30vw;
-    height: 57vh;
+    height: 59vh;
     border-radius: 10px;
     opacity: 0;
     visibility: hidden;
@@ -322,4 +327,8 @@ main {
     justify-content: center;
     gap: 1.5vw;
     margin-top: 2vh;
+}
+
+.edit_task {
+    display: none;
 }
