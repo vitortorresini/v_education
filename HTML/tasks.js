@@ -17,13 +17,14 @@ const tasks_closed = document.getElementById('cards_open')
 const home = document.getElementById('home')
 const task = document.getElementById('object')
 const task_title = document.getElementById('title_task')
-const data_task = document.getElementById("data")
-const descrição_task = document.getElementById("description")
 const closetask = document.getElementById('closeTask')
 const concluir = document.getElementById('concluir')
 const editar = document.getElementById('editTask')
 const deletar = document.getElementById('deleteTask')
-const tipo_object = document.getElementById("tipo_object") 
+const tipo_object_edit = document.getElementById("tipo_object_edit")
+const forms_edit = document.getElementById("edit_task")
+const description_edit = document.getElementById("description_edit")
+const data_edit = document.getElementById("data_edit")
 let tipo = ''
 
 
@@ -105,10 +106,11 @@ function criarTask(task_open) {
 function abrirTask(id, nome, conteudo, end_date, status, tipo) {
   console.log(id, nome, conteudo, end_date)
 
+  forms_edit.style.display = "flex"
   task_title.textContent = nome
-  data_task.textContent = end_date
-  tipo_object.textContent = tipo
-  descrição_task.textContent = conteudo
+  data_edit.value = end_date
+  tipo_object_edit.textContent = tipo
+  description_edit.value = conteudo
 
   task.style.opacity = '1'
   task.style.visibility = 'visible'
@@ -120,7 +122,6 @@ function abrirTask(id, nome, conteudo, end_date, status, tipo) {
 
   if (status === 'Concluido') {
     concluir.style.display = 'none'
-    editar.style.display = 'none'
   } else {
     concluir.style.display = 'flex'
     editar.style.display = 'flex'
@@ -128,11 +129,17 @@ function abrirTask(id, nome, conteudo, end_date, status, tipo) {
 
   concluir.addEventListener('click', () => concluirTask(id))
   deletar.addEventListener('click', () => deletarTask(id))
-  editar.addEventListener('click', () => editarTask(id, nome, conteudo, end_date, status, tipo))
+  editar.addEventListener('click', () => editarTask(id, nome, status, tipo))
 }
 
-function editarTask(id, nome, conteudo, end_date, status, tipo) {
-  
+function editarTask(id, nome, status, tipo) {
+
+  let conteudo = document.getElementById("description_edit").value
+  let end_date = document.getElementById("data_edit").value
+
+  console.log(id, nome, status, tipo,conteudo,end_date)
+
+
 }
 
 async function concluirTask(id) {
