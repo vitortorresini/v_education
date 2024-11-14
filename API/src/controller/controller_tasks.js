@@ -88,6 +88,37 @@ async function closeTask(request, response) {
     })
 }
 
+async function editTask(request, response) {
+    let params = [
+        request.body.conteudo,
+        request.body.end_date,
+        request.body.id
+    ];
+
+    let query = "UPDATE tasks_table SET conteudo = ?, end_date = ? WHERE id = ?"
+
+    connection.query(query, params, (err, results) => {
+        console.log(err, results)
+        if (results) {
+            response
+                .status(201)
+                .json({
+                    success: true,
+                    message: "Sucesso",
+                    data: results
+                })
+        } else {
+            response
+                .status(400)
+                .json({
+                    success: false,
+                    message: "Erro",
+                    data: err
+                })
+        }
+    })
+}
+
 async function deleteTask(request, response) {
 
     let params = Array (
@@ -122,5 +153,6 @@ module.exports = {
     taskCreate,
     getTask,
     closeTask,
-    deleteTask
+    deleteTask,
+    editTask
 }

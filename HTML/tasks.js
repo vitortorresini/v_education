@@ -132,13 +132,27 @@ function abrirTask(id, nome, conteudo, end_date, status, tipo) {
   editar.addEventListener('click', () => editarTask(id, nome, status, tipo))
 }
 
-function editarTask(id, nome, status, tipo) {
+async function editarTask(id, nome, status, tipo) {
 
   let conteudo = document.getElementById("description_edit").value
   let end_date = document.getElementById("data_edit").value
 
-  console.log(id, nome, status, tipo,conteudo,end_date)
+  let data = {id, conteudo, end_date}
 
+  let response = await fetch("http://localhost:3001/api/editTask", {
+    method: 'PUT',
+    headers: { "Content-type": "application/json;charset=UTF-8" },
+    body: JSON.stringify(data)
+  })
+
+  let content = await response.json()
+
+  if (content.success) {
+    closeTask()
+    setTimeout(() => location.reload(), 500)
+  } else {
+    console.log('deu merda')
+  }
 
 }
 
@@ -329,8 +343,9 @@ criar_modal.addEventListener("click", async function createObject(event) {
   }
 })
 
-closetask.addEventListener('click', function(){
+closetask.addEventListener('click', () => closeTask())
 
+function closeTask () {
   task.style.opacity = '0'
   task.style.visibility = 'hidden'
   task.style.transition = 'all 0.7s ease'
@@ -338,4 +353,4 @@ closetask.addEventListener('click', function(){
   fundo_escuro.style.opacity = '0'
   fundo_escuro.style.visibility = 'hidden'
   fundo_escuro.style.transition = 'all 0.7s ease'
-})
+}

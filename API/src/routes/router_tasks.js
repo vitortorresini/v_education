@@ -1,7 +1,7 @@
 const { Router } = require('express')
 const router = Router();
 
-const {taskCreate,getTask,closeTask,deleteTask} = require('../controller/controller_tasks');
+const {taskCreate,getTask,closeTask,deleteTask,editTask} = require('../controller/controller_tasks');
 
 /**
  * @swagger
@@ -55,6 +55,23 @@ router.post('/getTask', getTask)
  *                 type: object
  */
 router.patch('/closeTask', closeTask)
+
+/**
+ * @swagger
+ * /editTask:
+ *   get:
+ *     summary: Edita a task
+ *     responses:
+ *       200:
+ *         description: Edita os campos de data e conteudo da task no banco de dados.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ */
+router.put('/editTask', editTask)
 
 /**
  * @swagger
