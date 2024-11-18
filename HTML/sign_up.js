@@ -49,10 +49,16 @@ button.onclick = async function() {
                 
                 if(content.success) {
                     Swal.fire({
-                        title: "Conta Criada",
-                        text: "Agora faça login para acessa-lá",
-                        icon: "success"
+                        position: "center",
+                        icon: "success",
+                        title: "Conta criada, agora faça login para acessa-lá.",
+                        showConfirmButton: false,
+                        timer: 1800
                       });
+
+                      setTimeout(() => {
+                        window.location.href = 'login.html'
+                      }, 1800);
         
 
                 } else {

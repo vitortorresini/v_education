@@ -1,5 +1,7 @@
 const fundo_escuro = document.getElementById('blackscreen')
 const formContainer = document.getElementById('form-container');
+const task = document.getElementById('TAREFAS')
+
 
 document.addEventListener('DOMContentLoaded', async function pegarConteudo(event) {
     event.preventDefault();
@@ -127,8 +129,9 @@ logout.addEventListener('click', function() {
       },1200)
 })
 
-const perfil_home = document.getElementById('perfil')
+task.addEventListener("click", () => window.location.href = 'tasks.html')
 
+const perfil_home = document.getElementById('perfil')
 perfil_home.addEventListener('click', function(){
   window.location.href = 'perfil.html'
 })

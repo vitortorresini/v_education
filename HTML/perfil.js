@@ -4,6 +4,7 @@ const closeForm = document.getElementById('closeForm');
 const fundo_escuro = document.getElementById('blackscreen')
 const nome_forms = document.getElementById('nome-forms')
 const user_email = localStorage.getItem('email_user')
+const task = document.getElementById('TAREFAS')
 let update = ""
 
 const nome_atual = document.getElementById('nome-a')
@@ -286,9 +287,10 @@ closeForm.addEventListener('click', function() {
 
 const home_img = document.getElementById("home_img")
 
-home_img.addEventListener("click", function(){
-    window.location.href = "home.html"
-})
+home_img.addEventListener("click", () => window.location.href = 'home.html')
+
+task.addEventListener("click", () => window.location.href = 'tasks.html')
+
 
 const logout = document.getElementById('logout')
 

@@ -18,9 +18,9 @@ const home = document.getElementById('home')
 const task = document.getElementById('object')
 const task_title = document.getElementById('title_task')
 const closetask = document.getElementById('closeTask')
-const concluir = document.getElementById('concluir')
-const editar = document.getElementById('editTask')
-const deletar = document.getElementById('deleteTask')
+let concluir = document.getElementById('concluir')
+let editar = document.getElementById('editTask')
+let deletar = document.getElementById('deleteTask')
 const tipo_object_edit = document.getElementById("tipo_object_edit")
 const forms_edit = document.getElementById("edit_task")
 const description_edit = document.getElementById("description_edit")
@@ -29,6 +29,8 @@ let tipo = ''
 
 
 home.addEventListener("click", () => window.location.href = "home.html")
+perfil.addEventListener('click', () => window.location.href = 'perfil.html');
+
 
 addEventListener('DOMContentLoaded', async function getOpenTasks(event) {
   event.preventDefault()
@@ -126,6 +128,13 @@ function abrirTask(id, nome, conteudo, end_date, status, tipo) {
     concluir.style.display = 'flex'
     editar.style.display = 'flex'
   }
+  concluir.replaceWith(concluir.cloneNode(true));
+  deletar.replaceWith(deletar.cloneNode(true));
+  editar.replaceWith(editar.cloneNode(true));
+
+  concluir = document.getElementById('concluir');
+  deletar = document.getElementById('deleteTask');
+  editar = document.getElementById('editTask');
 
   concluir.addEventListener('click', () => concluirTask(id))
   deletar.addEventListener('click', () => deletarTask(id))
@@ -195,7 +204,7 @@ async function deletarTask(id) {
   if (content.success) {
     console.log('deu bom')
     console.log(content)
-    esconderFormulario()
+    closeTask()
     setTimeout(() => location.reload(), 500)
 
   } else {
